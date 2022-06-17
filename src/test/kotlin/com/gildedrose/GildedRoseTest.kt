@@ -127,4 +127,12 @@ internal class GildedRoseTest {
         val item = Item(Conjured, 3, 6)
         assertEquals("Conjured Mana Cake, 3, 6", item.toString())
     }
+
+    @Test
+    fun `Conjured by default quality reduced by 2`() {
+        val items = arrayOf(Item(Conjured, 3, 6))
+        val app = GildedRose(items)
+        app.updateQuality()
+        assertEquals(4, app.items[0].quality)
+    }
 }
